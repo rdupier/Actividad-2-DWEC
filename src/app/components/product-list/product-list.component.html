@@ -1,1 +1,14 @@
-<p>product-list works!</p>
+<section class="container mt-3">
+    <h2>Lista de productos</h2>
+    <hr>
+    <div class="row g-2 mt-3">
+        @for(product of products; track product._id){
+            <article class="col-12 col-md-6 col-lg-4 mt-5">
+                <app-product-card></app-product-card> 
+            </article>
+        }
+        @empty {
+            <h2>¡No hay productos!</h2>
+        }
+    </div>
+</section>
