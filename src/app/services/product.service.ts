@@ -30,4 +30,8 @@ export class ProductService {
     }
   }
 
+  addProduct(product: IProduct): void {
+    this.arrProducts.push(product);
+  }
+
 }
