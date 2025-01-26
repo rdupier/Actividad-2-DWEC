@@ -24,4 +24,9 @@ export class ProductListComponent {
     this.products = this.productService.getAllProducts();
   }
 
+  deleteProduct(product: IProduct): void {
+    this.productService.removeProduct(product); 
+    this.products = this.productService.getAllProducts(); 
+  }
+
 }
