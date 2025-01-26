@@ -23,4 +23,11 @@ export class ProductService {
     return this.arrProducts;
   }
 
+  removeProduct(productToDelete: IProduct): void {
+    const index = this.arrProducts.findIndex(product => product._id === productToDelete._id);
+    if (index !== -1) {
+      this.arrProducts.splice(index, 1);
+    }
+  }
+
 }
