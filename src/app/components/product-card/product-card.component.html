@@ -1,1 +1,13 @@
-<p>product-card works!</p>
+<div class="card shadow">
+    <h3 class="card-header text-center">{{myProduct.name}}</h3>
+    <ul class="list group m-1">
+        <li class="list-group-item">Descripción: {{myProduct.description}}</li>
+        <li class="list-group-item">Precio: {{myProduct.price}} €</li>
+        <li class="list-group-item">Categoria: {{myProduct.category}}</li>
+        <li class="list-group-item">
+            <img src="{{myProduct.image}}" class="custom-img mt-3" alt="{{myProduct.name}}">
+        </li>
+    </ul>
+
+    <button class="btn btn-danger mt-3" (click)="deleteProduct()">Eliminar</button>
+</div>
