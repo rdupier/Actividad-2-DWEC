@@ -15,18 +15,31 @@ export class ProductFormComponent {
 
   constructor(private productService: ProductService) {
     this.modelForm = new FormGroup ({
-    //_id: new FormControl(null,[Validators.required]),
     name: new FormControl(null,[Validators.required, Validators.minLength(3)]),
     description: new FormControl(null,[Validators.required, Validators.minLength(10)]),
     price: new FormControl(null,[Validators.required, Validators.min(1)]),
-    category: new FormControl(null,[Validators.required]),
+    category: new FormControl("",[Validators.required]),
     image: new FormControl(null,[Validators.required]),
-    //active: new FormControl(null,[Validators.required]),
     });
   }
 
   getDataForm() {
-    let product: IProduct = this.modelForm.value as IProduct;
+    let formValues = this.modelForm.value as IProduct;
+
+    function generateId(): string {
+      return Math.random().toString(36).substr(2, 9);
+  }
+
+    let product: IProduct = {
+      _id: generateId(),
+      active: true, 
+      name: formValues.name,
+      description: formValues.description,
+      price: formValues.price,
+      category: formValues.category,
+      image: formValues.image,
+    };
+
     this.productService.addProduct(product); 
     this.modelForm.reset();
   }
