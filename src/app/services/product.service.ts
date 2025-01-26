@@ -18,5 +18,9 @@ export class ProductService {
       });
     });
   }
-  
+
+  getAllProducts(): IProduct[]{
+    return this.arrProducts;
+  }
+
 }
