@@ -34,15 +34,4 @@ export class ProductService {
     this.arrProducts.push(product);
   }
 
-  filterProducts(filters: any): IProduct[] {
-    return this.arrProducts.filter(product => {
-      return (
-        (!filters.name || product.name.toLowerCase().includes(filters.name.toLowerCase())) &&
-        (!filters.category || product.category.toLowerCase().includes(filters.category.toLowerCase())) &&
-        (product.price >= filters.priceMin && product.price <= filters.priceMax) &&
-        (filters.active === undefined || product.active === filters.active)
-      );
-    });
-  }
-
 }
